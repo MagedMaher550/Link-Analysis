@@ -1,0 +1,57 @@
+{% extends "bootstrap/base.html" %}
+{% block html %}
+
+<html>
+    <head>
+        <title>Flask Project</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-xs-12 col-md-6">
+                    <h1 class="text-justify""> Link Analysis Project </h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-md-6" style="margin-top: 30px;">
+                    <div id="StatContent">
+                        <form name="passdata" action='.' method="post" id="Vectorform">
+                            <div class="form-group">
+                                <label for="VectorQuery"> Enter your query</label>
+                                <input type="text" class="form-control" name="VectorQuery">
+                                <p style="color:red">Query must be on the format &nbsp; ABCEDDEDDCA</p>
+                                <input type="submit" class="btn btn-primary" value="Search" style="margin-top:10px;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <h4 id="RESULTS">
+                        {% autoescape false %}
+                            {{Res1}}
+                        {% endautoescape %}
+                    </h4>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h4 id="RESULTS">
+                        {% autoescape false %}
+                            {{Res2}}
+                        {% endautoescape %}
+                    </h4>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h4 id="RESULTS">
+                        {% autoescape false %}
+                            {{Res3}}
+                        {% endautoescape %}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}
